@@ -8,7 +8,8 @@ on:
 jobs: 
   build:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
     #I AM HOPING NOT TO COPY THIS STEPS AGAIN FROM MAIN.YML
     
     steps:
