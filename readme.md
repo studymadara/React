@@ -12,10 +12,10 @@ This module will have 2 things
 
 
 ## More bonus points XD
-- [ ] AWS CodeCommit <sup>DL
-- [ ] AWS CodeBuild <sup>DL
-- [ ] AWS CodeDeploy <sup>DL
-- [ ] AWS CodePipeline <sup>DL
+- [ ] ~~AWS CodeCommit~~ <sup>DL
+- [ ] ~~AWS CodeBuild~~ <sup>DL
+- [ ] ~~AWS CodeDeploy~~ <sup>DL
+- [ ] ~~AWS CodePipeline~~ <sup>DL
 - [ ] Docker
 - [x] GitHub Actions
 - [x] Dependabot for security
