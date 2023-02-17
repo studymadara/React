@@ -1,0 +1,37 @@
+name: "Build Release"
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    
+    #I AM HOPING NOT TO COPY THIS STEPS AGAIN FROM MAIN.YML
+    
+    steps:
+      - name: Checkout from main branch
+        uses: actions/checkout@v2
+        
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 19
+          distribution: 'temurin'
+          
+      - name: Build Maven Project
+        run: | 
+          mvn -B package --file pom.xml
+          mkdir staging && cp target/*.jar staging
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            LICENSE.txt
+            *.jar
