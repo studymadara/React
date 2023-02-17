@@ -25,7 +25,13 @@ jobs:
         with:
           java-version: 19
           distribution: 'temurin'
-          
+
+      - name: Bump Version
+        id: bump
+        uses: nnichols/maven-version-bump-action@v3
+        with:
+            github-token: ${{ secrets.github_token }}
+
       - name: Build Maven Project
         run: mvn -B package --file pom.xml
 
@@ -33,6 +39,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
+          title: "${{steps.bump.outputs.version}}"
           prerelease: false
           files: |
             target/*.jar
