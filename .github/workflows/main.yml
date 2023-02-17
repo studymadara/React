@@ -1,0 +1,21 @@
+name: Building React Project
+
+on:
+  push:
+    branches: [ master ]
+    
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout from main branch
+        uses: actions/checkout@v2
+        
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 19
+          
+      - name: Build Maven Project
+        run: mvn -B package --file pom.xml
