@@ -17,9 +17,10 @@ This module will have 2 things
 - [ ] AWS CodeDeploy <sup>DL
 - [ ] AWS CodePipeline <sup>DL
 - [ ] Docker
-- [ ] GitHub Actions
-- [ ] Dependabot for security
-- [ ] Code Coverage and Github Badges
+- [x] GitHub Actions
+- [x] Dependabot for security
+- [x] Code Coverage 
+- [ ] GitHub Badges
 - [ ] Use LocalStack for AWS
 - [ ] Automated Changelog
 - [ ] Dev Docs, Production Team Docs, User Docs
