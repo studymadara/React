@@ -18,4 +18,20 @@ jobs:
           java-version: 19
           
       - name: Build Maven Project
-        run: mvn -B package --file pom.xml
+        run: | 
+          mvn -B package --file pom.xml
+          mkdir staging && cp target/*.jar staging
+
+      - name: Cache for Maven
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: React
+            path: staging

@@ -12,16 +12,23 @@ This module will have 2 things
 
 
 ## More bonus points XD
-- [ ] ~~AWS CodeCommit~~
-- [ ] ~~AWS CodeBuild~~
-- [ ] ~~AWS CodeDeploy~~
-- [ ] ~~AWS CodePipeline~~
+- [ ] AWS CodeCommit <sup>DL
+- [ ] AWS CodeBuild <sup>DL
+- [ ] AWS CodeDeploy <sup>DL
+- [ ] AWS CodePipeline <sup>DL
 - [ ] Docker
+- [ ] GitHub Actions
+- [ ] Dependabot for security
+- [ ] Code Coverage and Github Badges
+- [ ] Use LocalStack for AWS
+- [ ] Automated Changelog
+- [ ] Dev Docs, Production Team Docs, User Docs
 
 ### Existing Stack Info
 1. Java 19
 2. Spring React Starter 3.0.2
-3. R2DBC H2 1.0.0
+3. ~~R2DBC H2 1.0.0~~
+4. Amazon DyanamoDB <sup>DL
 
 
 ## Planned
@@ -41,16 +48,31 @@ This module will have 2 things
 
 --------------
 Note - 
+- DL = Depends on Localstack
 - LI = Learn and Implement
 - I = Implement
-
 -----------
 
 
 Discussions 
 
-1. Add Microservice by creating one more backend app.
-2. Instead of calling public api directly use Amazon Lamda.
+- [ ] Add Microservice by creating one more backend app. 
+- [ ] Instead of calling public api directly use Amazon Lamda - basic.
+- [x] Add dependency bot for security  
+- [ ] Read the docs
+- [x] Sonarqube
+- [x] Badges for github
+- [x] Code Coverage badge
+- [x] Junit test badge
+- [ ] Gitmoji 
+- [x] DynamoDB / Mongo
+- [x] Check localstack
+- [ ] Ways to create mono and flux or patterns / flux->mono mono->flux
+- [x] Automated changelog
+- [ ] Semantic for java 
+- [x] Dev readme, prod team doc, swagger/how to use your service (restdocs) - 100%
+- [x] Project structure - rules [doc part]
+- [ ] Use grammarly 
 
 
 
