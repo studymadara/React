@@ -25,14 +25,13 @@ jobs:
       - name: Build Maven Project
         run: | 
           mvn -B package --file pom.xml
-          mkdir staging && cp target/*.jar staging
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          prerelease: true
+          prerelease: false
           title: "Development Build"
           files: |
-            LICENSE.txt
-            *.jar
+#            LICENSE.txt
+            target/*.jar
