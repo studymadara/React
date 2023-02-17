@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     #I AM HOPING NOT TO COPY THIS STEPS AGAIN FROM MAIN.YML
-    
+
     steps:
       - name: Checkout from main branch
         uses: actions/checkout@v2
@@ -23,8 +24,7 @@ jobs:
           distribution: 'temurin'
           
       - name: Build Maven Project
-        run: | 
-          mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -33,5 +33,4 @@ jobs:
           prerelease: false
           title: "Development Build"
           files: |
-#            LICENSE.txt
             target/*.jar
