@@ -1,8 +1,12 @@
-# Spring Reactive 
-This module will have 2 things 
+# Spring  
+This module will have the following things 
 
 1. Reactive Database - (Create, Update, Delete)
 2. Reactive WebAPI - Will call an external api - (Need to figure out which one for eg. zomato public api or likewise)
+3. Monitoring
+4. Tracing in Distributed System
+5. Resilience 
+6. Feature Flag in Spring Boot
 
 ### Now apart from those things we will add bonus points for :)
 - [ ] Spring WebSecurity
@@ -34,18 +38,14 @@ This module will have 2 things
 
 ## Planned
 ### For Version 1.0
-1. Reactive Database <sup>LI<sup>
+1. Monitoring <sup>LI<sup>
 2. Error Handling <sup>I<sup>
 3. Logging <sup>I<sup>
-4. AWS CodeCommit <sup>LI<sup>
 5. Docker <sup>LI<sup>
 6. Postman <sup>I<sup>
 
 ### For Version 2.0
-1. Reactive WebAPI <sup>I<sup>
-2. Spring Security <sup>LI<sup>
-3. AWS CodeBuild <sup>LI<sup>
-4. AWS CodePipeline <sup>LI<sup>
+TBC
 
 --------------
 Note - 
@@ -62,7 +62,7 @@ Discussions
 - [x] Add dependency bot for security  
 - [ ] Read the docs
 - [x] Sonarqube
-- [x] Badges for github
+- [x] Badges for GitHub
 - [x] Code Coverage badge
 - [x] Junit test badge
 - [ ] Gitmoji 
@@ -74,6 +74,11 @@ Discussions
 - [x] Dev readme, prod team doc, swagger/how to use your service (restdocs) - 100%
 - [x] Project structure - rules [doc part]
 - [ ] Use grammarly 
+- [ ] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)**
+- [ ] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
+- [ ] **[Resiliency](https://resilience4j.readme.io/)**
+- [ ] **Feature Flags in Spring Boot**
+
 
 
 
