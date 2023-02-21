@@ -17,7 +17,7 @@
     </properties>
 
     <scm>
-        <url>https://github.com/studymadara/React.git</url>
+        <url>https://github.com/studymadara/React</url>
         <developerConnection>scm:git:https://github.com/studymadara/React.git</developerConnection>
     </scm>
 
