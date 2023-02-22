@@ -19,9 +19,9 @@ services:
       - AWS_SECRET_KEY_ID=KEYID
       - DEBUG=1
   app:
-    build: ../ReactCRUD
+    build:
+      context: ./
+      dockerfile: Dockerfile
     ports:
       - 8080:8080 #Internal port to external port mapping
-    volumes:
-      - .m2:/root/.m2
 
