@@ -13,3 +13,6 @@ COPY --from=builder application/snapshot-dependencies/ ./
 RUN true
 COPY --from=builder application/application/ ./
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+
+#REASON FOR MULTIPLE RUN TRUE
+#https://github.com/moby/moby/issues/37965
