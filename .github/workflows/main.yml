@@ -39,8 +39,12 @@ jobs:
 
       - name: Docker Build
         run: |
-          docker build . -t react:latest virajwagh/dockerhub:gitpush
+          docker build . -t react 
+
+      - name: Docker Tag
+        run: |
+          docker tag react virajwagh/dockerhub
 
       - name: Docker Push
         run: |
-          docker push virajwagh/dockerhub:gitpush
+          docker push virajwagh/dockerhub
