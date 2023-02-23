@@ -10,18 +10,26 @@ services:
     environment:
       - SERVICES=sqs,dynamodb # a list of desired services you want to use.
       - DEFAULT_REGION=eu-west-1 # This is the region where your localstack mocks to be running
-      - DATA_DIR=/tmp/localstack/data
-      - PORT_WEB_UI=9000
       - LAMBDA_EXECUTOR=local
+      - KINESIS_PROVIDER=kinesalite
+      - EDGE_PORT=4566
       - DOCKER_HOST=unix:///var/run/docker.sock
       - START_WEB=1
       - AWS_SECRET_ACCESS_KEY=KEYTEST
       - AWS_SECRET_KEY_ID=KEYID
       - DEBUG=1
+    networks:
+      - local_network
   app:
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
       - 8080:8080 #Internal port to external port mapping
+    networks:
+      - local_network
+
+networks:
+  local_network:
+    driver: bridge
 
