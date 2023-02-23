@@ -32,6 +32,23 @@ All the features are more like proof of concept. This is just for learning purpo
 
 ### Installation
 
+DynamoDb Tables
+
+```
+aws dynamodb --endpoint-url=http://localhost:4566 delete-table --table-name Student
+
+aws dynamodb --endpoint-url=http://localhost:4566 create-table \
+--table-name Student \
+--attribute-definitions \
+AttributeName=student_roll_no,AttributeType=S \
+--key-schema \
+AttributeName=student_roll_no,KeyType=HASH \
+--provisioned-throughput \
+ReadCapacityUnits=10,WriteCapacityUnits=5
+
+
+```
+
 ### Running 
 
 

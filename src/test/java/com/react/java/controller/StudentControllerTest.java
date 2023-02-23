@@ -14,7 +14,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StudentControllerTest {
@@ -35,7 +34,7 @@ class StudentControllerTest {
     @Test
     void testGetStudent() {
         String rollNo = "12";
-        Student expected = Student.builder().studentRollNo(rollNo).studentName("Raj Test").studentClass("12th").id(UUID.randomUUID().toString()).build();
+        Student expected = Student.builder().studentRollNo(rollNo).studentName("Raj Test").studentClass("12th").build();
         Mockito.when(studentRepository.getStudent(rollNo)).thenReturn(Optional.of(expected));
 
         Student student = restTemplate.exchange("http://localhost:" + port + "/get/" + rollNo, HttpMethod.GET, null, Student.class).getBody();

@@ -15,15 +15,14 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbParti
 @EqualsAndHashCode
 public class Student {
 
-    private String id;
-    private String studentName;
     private String studentRollNo;
+    private String studentName;
     private String studentClass;
 
-    @DynamoDbAttribute(value = "id")
+    @DynamoDbAttribute(value = "student_roll_no")
     @DynamoDbPartitionKey
-    public String getId() {
-        return id;
+    public String getStudentRollNo() {
+        return studentRollNo;
     }
 
     @DynamoDbAttribute(value = "student_name")
@@ -35,10 +34,6 @@ public class Student {
         this.studentName = studentName;
     }
 
-    @DynamoDbAttribute(value = "student_roll_no")
-    public String getStudentRollNo() {
-        return studentRollNo;
-    }
 
     public void setStudentRollNo(String studentRollNo) {
         this.studentRollNo = studentRollNo;
