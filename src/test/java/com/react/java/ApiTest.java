@@ -26,7 +26,7 @@ class ApiTest {
     }
 
     @Test
-    @Disabled(value = "Will enable once docker is fully integrated with tests as well")
+    @Disabled(value = "Will enable once docker is integrated with tests as well")
     void testGetStudent() {
         Student student = restTemplate.exchange("http://localhost:" + port + "/get/12", HttpMethod.GET, null, Student.class).getBody();
         assertNull(student);

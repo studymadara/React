@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "d152f7c7-d316-4ed0-a68f-f486555495d8",
+		"name": "React",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{env}}/",
+					"protocol": "http",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "env",
+			"value": "localhost:8080"
+		}
+	]
+}

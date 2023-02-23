@@ -8,13 +8,13 @@ All the features are more like proof of concept. This is just for learning purpo
 - [ ] Spring WebSecurity
 - [ ] Error Handling
 - [ ] Logging
-- [ ] Postman
+- [x] Postman
 - [x] Docker
 - [x] GitHub Actions
 - [x] Dependabot for security
 - [x] Code Coverage
 - [ ] GitHub Badges
-- [ ] Use LocalStack for AWS
+- [x] Use LocalStack for AWS
 - [ ] Automated Changelog
 - [ ] Dev Docs, Production Team Docs, User Docs
 - [ ] Spring Reactive Database
@@ -35,8 +35,6 @@ All the features are more like proof of concept. This is just for learning purpo
 DynamoDb Tables
 
 ```
-aws dynamodb --endpoint-url=http://localhost:4566 delete-table --table-name Student
-
 aws dynamodb --endpoint-url=http://localhost:4566 create-table \
 --table-name Student \
 --attribute-definitions \
@@ -45,10 +43,14 @@ AttributeName=student_roll_no,AttributeType=S \
 AttributeName=student_roll_no,KeyType=HASH \
 --provisioned-throughput \
 ReadCapacityUnits=10,WriteCapacityUnits=5
-
-
 ```
 
-### Running 
+### Running
 
+1. Run Docker Compose file
 
+### Deleting AWS Tables
+
+```
+aws dynamodb --endpoint-url=http://localhost:4566 delete-table --table-name Student
+```
