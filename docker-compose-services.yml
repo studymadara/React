@@ -19,7 +19,7 @@ services:
       - AWS_SECRET_KEY_ID=KEYID
       - DEBUG=1
     volumes:
-      - "/Users/wagh/Workspace-1.0/ReactCRUD/src/main/resources/docker/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
+      - "/src/main/resources/docker/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
