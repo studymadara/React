@@ -1,6 +1,7 @@
 package com.react.java.config;
 
 import com.react.java.dao.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -15,21 +16,29 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Autowired
+    UserService userService;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf().disable()
+        return httpSecurity
                 .authorizeHttpRequests()
-                .requestMatchers("/").permitAll()  //Login is not required for landing page
+//                .anyRequest().permitAll()
+                .requestMatchers("/home").permitAll()  //Login is not required for landing page
+                .and()
+                .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/**")
-                .authenticated();
-        return httpSecurity.build();
+                .anyRequest()
+                .authenticated()
+                .and()
+                .csrf().disable()
+                .authenticationProvider(authenticationProvider())
+                .build();
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(UserService userService) {
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userService);
         authenticationProvider.setPasswordEncoder(passwordEncoder());

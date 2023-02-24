@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 
 import java.util.Optional;
@@ -38,7 +40,12 @@ class StudentControllerTest implements DevUnitTesting {
         Student expected = Student.builder().studentRollNo(rollNo).studentName("Raj Test").studentClass("12th").build();
         Mockito.when(studentRepository.getStudent(rollNo)).thenReturn(Optional.of(expected));
 
-        Student student = restTemplate.exchange("http://localhost:" + port + "/get/" + rollNo, HttpMethod.GET, null, Student.class).getBody();
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic dmlyYTp2aXJh");
+        HttpEntity<String> httpEntity = new HttpEntity<>("body", headers);
+
+        Student student = restTemplate
+                .exchange("http://localhost:" + port + "/get/" + rollNo, HttpMethod.GET, httpEntity, Student.class).getBody();
 
         Assertions.assertEquals(student, expected);
     }

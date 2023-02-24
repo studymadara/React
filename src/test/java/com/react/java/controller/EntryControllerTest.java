@@ -32,7 +32,7 @@ class EntryControllerTest implements DevUnitTesting {
 
     @Test
     void testLandingApi() {
-        HttpStatusCode httpStatusCode = restTemplate.exchange("http://localhost:" + port + "/", HttpMethod.GET, null, HttpStatus.class).getStatusCode();
+        HttpStatusCode httpStatusCode = restTemplate.exchange("http://localhost:" + port + "/home", HttpMethod.GET, null, HttpStatus.class).getStatusCode();
         assertEquals(HttpStatus.OK.value(), httpStatusCode.value());
     }
 
