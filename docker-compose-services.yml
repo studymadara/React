@@ -13,11 +13,15 @@ services:
       - LAMBDA_EXECUTOR=local
       - KINESIS_PROVIDER=kinesalite
       - EDGE_PORT=4566
-      - DOCKER_HOST=unix:///var/run/docker.sock
       - START_WEB=1
+      - DOCKER_HOST=unix:///var/run/docker.sock
       - AWS_SECRET_ACCESS_KEY=KEYTEST
       - AWS_SECRET_KEY_ID=KEYID
       - DEBUG=1
+    volumes:
+      - "/Users/wagh/Workspace-1.0/ReactCRUD/src/main/resources/docker/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - local_network
   app:

@@ -5,7 +5,7 @@ All the features are more like proof of concept. This is just for learning purpo
 
 ### Features
 
-- [ ] Spring WebSecurity
+- [x] Spring WebSecurity
 - [ ] Error Handling
 - [ ] Logging
 - [x] Postman

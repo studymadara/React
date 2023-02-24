@@ -11,13 +11,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{env}}/",
+					"raw": "http://{{env}}/home",
 					"protocol": "http",
 					"host": [
 						"{{env}}"
 					],
 					"path": [
-						""
+						"home"
 					]
 				}
 			},
@@ -26,6 +26,21 @@
 		{
 			"name": "Get Student Detail",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "vira",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "vira",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
