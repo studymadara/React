@@ -22,6 +22,60 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Student Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{env}}/get/12",
+					"protocol": "http",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"get",
+						"12"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "vira",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "vira",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [

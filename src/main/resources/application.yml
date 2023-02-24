@@ -4,3 +4,8 @@ amazon:
   aws:
     accesskey: KEYTEST
     secretkey: KEYID
+
+
+spring:
+  profiles:
+    active: dev

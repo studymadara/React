@@ -1,6 +1,7 @@
 package com.react.java.controller;
 
-import com.react.java.dao.StudentRepository;
+import com.react.java.DevUnitTesting;
+import com.react.java.dao.student.StudentRepository;
 import com.react.java.model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +17,7 @@ import org.springframework.http.HttpMethod;
 import java.util.Optional;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class StudentControllerTest {
+class StudentControllerTest implements DevUnitTesting {
     @Value(value = "${local.server.port}")
     private int port;
 

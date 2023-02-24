@@ -1,6 +1,6 @@
 package com.react.java.controller;
 
-import com.react.java.dao.StudentRepository;
+import com.react.java.dao.student.StudentRepository;
 import com.react.java.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

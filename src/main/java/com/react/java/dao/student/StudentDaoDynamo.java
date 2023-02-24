@@ -1,4 +1,4 @@
-package com.react.java.dao;
+package com.react.java.dao.student;
 
 import com.react.java.model.Student;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;

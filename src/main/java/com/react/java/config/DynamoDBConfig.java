@@ -1,6 +1,7 @@
 package com.react.java.config;
 
-import com.react.java.dao.StudentDaoDynamo;
+import com.react.java.dao.student.StudentDaoDynamo;
+import com.react.java.dao.user.UserDaoDynamo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,5 +44,10 @@ public class DynamoDBConfig {
     @Bean
     public StudentDaoDynamo studentDaoDynamo(DynamoDbEnhancedClient dynamoDbEnhancedClient) {
         return new StudentDaoDynamo(dynamoDbEnhancedClient);
+    }
+
+    @Bean
+    public UserDaoDynamo userDaoDynamo(DynamoDbEnhancedClient dynamoDbEnhancedClient) {
+        return new UserDaoDynamo(dynamoDbEnhancedClient);
     }
 }

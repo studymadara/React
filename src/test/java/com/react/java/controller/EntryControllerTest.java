@@ -1,5 +1,6 @@
 package com.react.java.controller;
 
+import com.react.java.DevUnitTesting;
 import com.react.java.ReactCRUDApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = ReactCRUDApplication.class)
-class EntryControllerTest {
+class EntryControllerTest implements DevUnitTesting {
 
     @Value(value = "${local.server.port}")
     private int port;
