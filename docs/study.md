@@ -17,20 +17,19 @@
 - [x] Dev readme, prod team doc, swagger/how to use your service (restdocs) - 100%
 - [x] Project structure - rules [doc part]
 - [x] Use grammarly
-- [x] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)**
+- [x] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)** ([Business Metrics](https://docs.spring.io/spring-metrics/docs/current/public/prometheus)
+  and [Technical Metrics]())
 - [ ] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
 - [ ] **[Resiliency](https://resilience4j.readme.io/)**
 - [ ] **Feature Flags in Spring Boot**
 
-
-
-
-
 --------------
 Note -
+
 - DL = Depends on Localstack
 - LI = Learn and Implement
 - I = Implement
+
 -----------
 
 

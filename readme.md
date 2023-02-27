@@ -19,7 +19,7 @@ All the features are more like proof of concept. This is just for learning purpo
 - [ ] Dev Docs, Production Team Docs, User Docs
 - [ ] Spring Reactive Database
 - [ ] Spring Reactive WebAPI
-- [ ] Monitoring
+- [x] Monitoring
 - [ ] Tracing in Distributed System
 - [ ] Resilience
 - [ ] Feature Flag in Spring Boot
