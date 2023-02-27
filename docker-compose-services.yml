@@ -19,7 +19,7 @@ services:
       - AWS_SECRET_KEY_ID=KEYID
       - DEBUG=1
     volumes:
-      - "/src/main/resources/docker/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
+      - "/Users/wagh/Workspace-1.0/ReactCRUD/src/main/resources/docker/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
@@ -30,6 +30,29 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080 #Internal port to external port mapping
+    networks:
+      - local_network
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    volumes:
+      - "/Users/wagh/Workspace-1.0/ReactCRUD/src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml"
+    networks:
+      - local_network
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
     networks:
       - local_network
 

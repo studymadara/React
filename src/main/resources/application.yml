@@ -9,3 +9,14 @@ amazon:
 spring:
   profiles:
     active: dev
+
+management:
+  endpoint:
+    metrics:
+      enable: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: prometheus

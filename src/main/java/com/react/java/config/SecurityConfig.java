@@ -23,7 +23,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests()
-//                .anyRequest().permitAll()
                 .requestMatchers("/home").permitAll()  //Login is not required for landing page
                 .and()
                 .httpBasic()
