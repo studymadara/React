@@ -20,7 +20,7 @@ services:
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      - local_network
+      - local_db_network
   app:
     build:
       context: ./
@@ -28,7 +28,8 @@ services:
     ports:
       - "8080:8080" #Internal port to external port mapping
     networks:
-      - local_network
+      - local_db_network
+      - local_metric_network
       - external_network
 
   prometheus:
@@ -39,7 +40,7 @@ services:
     volumes:
       - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml" # Change <Workspace> location
     networks:
-      - local_network
+      - local_metric_network
 
   grafana:
     image: grafana/grafana
@@ -51,10 +52,12 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=grafana
     networks:
       - external_network
-      - local_network
+      - local_metric_network
 
 networks:
-  local_network:
+  local_db_network:
+    driver: bridge
+  local_metric_network:
     driver: bridge
   external_network:
     driver: bridge
