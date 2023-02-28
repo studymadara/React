@@ -1,6 +1,6 @@
 amazon:
   dynamodb:
-    endpoint: http://localhost:4566/
+    endpoint: http://localstack:4566/
   aws:
     accesskey: KEYTEST
     secretkey: KEYID
@@ -24,4 +24,4 @@ management:
 
 logging:
   level:
-    com.react.java: DEBUG
+    org: DEBUG

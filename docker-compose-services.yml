@@ -4,9 +4,6 @@ services:
   localstack:
     image: localstack/localstack
     container_name: localstack
-    ports:
-      - "4566:4566" # port of to where localstack can be addressed to
-      - "9000:9000"
     environment:
       - SERVICES=sqs,dynamodb # a list of desired services you want to use.
       - DEFAULT_REGION=eu-west-1 # This is the region where your localstack mocks to be running
@@ -29,17 +26,16 @@ services:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - 8080:8080 #Internal port to external port mapping
+      - "8080:8080" #Internal port to external port mapping
     networks:
       - local_network
+      - external_network
 
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
-    ports:
-      - 9090:9090
     volumes:
       - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml" # Change <Workspace> location
     networks:
@@ -49,14 +45,17 @@ services:
     image: grafana/grafana
     container_name: grafana
     ports:
-      - 3000:3000
+      - "3000:3000"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
     networks:
+      - external_network
       - local_network
 
 networks:
   local_network:
+    driver: bridge
+  external_network:
     driver: bridge
 

@@ -22,10 +22,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
+                .httpBasic()
+                .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/home").permitAll()  //Login is not required for landing page
-                .and()
-                .httpBasic()
                 .and()
                 .authorizeHttpRequests()
                 .anyRequest()

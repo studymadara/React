@@ -7,7 +7,7 @@ All the features are more like proof of concept. This is just for learning purpo
 
 - [x] Spring WebSecurity
 - [ ] Error Handling
-- [ ] Logging
+- [x] Logging
 - [x] Postman
 - [x] Docker
 - [x] GitHub Actions
