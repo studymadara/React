@@ -22,6 +22,12 @@
 - [ ] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
 - [ ] **[Resiliency](https://resilience4j.readme.io/)**
 - [ ] **Feature Flags in Spring Boot**
+- [ ] How to deal with Idempotent Requests
+- [ ] Logging Filters (/httptrace)
+
+Links
+
+1. [Micro Meter Brief Tutorial](https://www.youtube.com/watch?v=JAdxO1XboJY)
 
 --------------
 Note -

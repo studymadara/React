@@ -56,6 +56,48 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Save Student Detail",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "vira",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "vira",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentRollNo\": \"1\",\n    \"studentName\": \"Test Viraj\",\n    \"studentClass\": \"Diploma\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{env}}/save",
+					"protocol": "http",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"save"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
