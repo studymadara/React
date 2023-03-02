@@ -24,6 +24,8 @@
 - [ ] **Feature Flags in Spring Boot**
 - [ ] How to deal with Idempotent Requests
 - [ ] Logging Filters (/httptrace)
+- [ ] Externalized Configuration
+- [ ] Client Requirement to Code process - Upgrade
 
 Links
 

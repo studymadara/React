@@ -25,3 +25,14 @@ management:
 logging:
   level:
     org: DEBUG
+
+
+instance:
+  database:
+    call: ${DB_CALL}
+  error: ${ERROR_CALL}
+
+
+calling:
+  service:
+    url: ${CALL_URL}
