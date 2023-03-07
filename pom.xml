@@ -4,7 +4,7 @@
 
     <groupId>com.reactcrud</groupId>
     <artifactId>ReactCRUD</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
@@ -27,7 +27,7 @@
     <scm>
         <url>https://github.com/studymadara/React</url>
         <developerConnection>scm:git:https://github.com/studymadara/React.git</developerConnection>
-        <tag>ReactCRUD-1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
