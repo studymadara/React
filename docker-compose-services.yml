@@ -36,7 +36,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-2:8080
-      - logging.level.org=INFO
+      - spring.application.name=app-1
   app-2:
     build:
       context: ./
@@ -51,7 +51,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-3:8080
-      - logging.level.org=INFO
+      - spring.application.name=app-2
   app-3:
     build:
       context: ./
@@ -66,7 +66,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-4:8080
-      - logging.level.org=INFO
+      - spring.application.name=app-3
   app-4:
     build:
       context: ./
@@ -81,7 +81,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-5:8080
-      - logging.level.org=INFO
+      - spring.application.name=app-4
   app-5:
     build:
       context: ./
@@ -96,7 +96,7 @@ services:
       - instance.database.call= true
       - instance.error= false
       - calling.service.url=http://app-1:8080
-      - logging.level.org=INFO
+      - spring.application.name=app-5
 
   prometheus:
     image: prom/prometheus
@@ -119,6 +119,13 @@ services:
     networks:
       - external_network
       - local_metric_network
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - external_network
 
 networks:
   local_db_network:

@@ -1,13 +1,13 @@
 package com.react.java.dao.student;
 
 import com.react.java.model.Student;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-@Slf4j
 public class StudentRepository {
 
     private final StudentDaoDynamo studentDaoDynamo;
@@ -15,6 +15,8 @@ public class StudentRepository {
     StudentRepository(StudentDaoDynamo studentDaoDynamo) {
         this.studentDaoDynamo = studentDaoDynamo;
     }
+
+    Logger log = LoggerFactory.getLogger(StudentRepository.class);
 
     public Optional<Student> getStudent(String rollNo) {
         log.info("get student was called");

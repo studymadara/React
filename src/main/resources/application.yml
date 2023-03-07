@@ -9,6 +9,12 @@ amazon:
 spring:
   profiles:
     active: dev
+  zipkin:
+    base-url: http://zipkin:9411
+  application:
+    name: LOCAL-APP
+
+
 
 management:
   endpoint:
@@ -22,17 +28,15 @@ management:
         include: prometheus
 
 
-logging:
-  level:
-    org: DEBUG
-
-
 instance:
   database:
-    call: ${DB_CALL}
-  error: ${ERROR_CALL}
+    call: true
+  error: false
 
 
 calling:
   service:
-    url: ${CALL_URL}
+    url: http://app-2:8080
+
+
+

@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +31,7 @@ class EntryControllerTest implements DevUnitTesting {
 
     @Test
     void testLandingApi() {
-        HttpStatusCode httpStatusCode = restTemplate.exchange("http://localhost:" + port + "/home", HttpMethod.GET, null, HttpStatus.class).getStatusCode();
+        HttpStatus httpStatusCode = restTemplate.exchange("http://localhost:" + port + "/home", HttpMethod.GET, null, HttpStatus.class).getStatusCode();
         assertEquals(HttpStatus.OK.value(), httpStatusCode.value());
     }
 

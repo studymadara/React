@@ -6,7 +6,8 @@ import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -24,7 +25,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 @RestController
-@Slf4j
 public class StudentController {
 
     StudentRepository studentRepository;
@@ -32,12 +32,13 @@ public class StudentController {
     Counter studentSaveCounter;
     Timer getDataTimer;
     RestTemplate restTemplate;
-
     @Value("${instance.database.call}")
     boolean isDBCallAllowed;
 
     @Value("${calling.service.url}")
     String serviceUrl;
+
+    Logger log = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
     StudentController(StudentRepository studentRepository, MeterRegistry meterRegistry, RestTemplate restTemplate) {
@@ -52,7 +53,6 @@ public class StudentController {
         if (isDBCallAllowed) {
             return ResponseEntity.ok().body(getDataTimer.record(() -> studentRepository.getStudent(rollNo)));
         } else {
-
             //BELOW IS JUST FOR EXPERIMENTING PURPOSE !!!NOT READY FOR PRODUCTION!!!
             log.info("get student call was relayed to another service");
             log.debug("get student with roll no: {} call was relayed to another service ", rollNo);

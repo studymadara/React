@@ -24,10 +24,10 @@ public class SecurityConfig {
         return httpSecurity
                 .httpBasic()
                 .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/home").permitAll()  //Login is not required for landing page
+                .authorizeRequests()
+                .antMatchers("/home").permitAll()  //Login is not required for landing page
                 .and()
-                .authorizeHttpRequests()
+                .authorizeRequests()
                 .anyRequest()
                 .authenticated()
                 .and()
