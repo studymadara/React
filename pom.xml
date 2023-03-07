@@ -16,6 +16,15 @@
         <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <url>https://github.com/studymadara/React</url>
+            <id>github</id>
+            <name>github</name>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+
     <scm>
         <url>https://github.com/studymadara/React</url>
         <developerConnection>scm:git:https://github.com/studymadara/React.git</developerConnection>
