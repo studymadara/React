@@ -38,5 +38,7 @@ calling:
   service:
     url: http://app-2:8080
 
-
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 

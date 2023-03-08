@@ -20,7 +20,7 @@ All the features are more like proof of concept. This is just for learning purpo
 - [ ] Spring Reactive Database
 - [ ] Spring Reactive WebAPI
 - [x] Monitoring
-- [ ] Tracing in Distributed System
+- [x] Tracing in Distributed System
 - [ ] Resilience
 - [ ] Feature Flag in Spring Boot
 

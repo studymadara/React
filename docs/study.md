@@ -26,6 +26,10 @@
 - [ ] Logging Filters (/httptrace)
 - [ ] Externalized Configuration
 - [ ] Client Requirement to Code process - Upgrade
+- [ ] cache patterns
+- [ ] maven refresh
+- [ ] clean code read
+- [ ] [12 factors](https://12factor.net/)
 
 Links
 
