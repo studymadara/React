@@ -1,0 +1,8 @@
+site_name: React
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - java
+    - bash
