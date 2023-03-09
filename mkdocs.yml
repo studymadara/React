@@ -24,4 +24,5 @@ markdown_extensions:
 # Navigation
 nav:
   - Welcome:
-      - Overview: index.md
+      - Developer Guide: index.md
+      - DevOps Guide: devOpsGuide.md
