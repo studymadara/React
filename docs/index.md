@@ -3,22 +3,30 @@
 This project is a benchmark for most of the best practices one should follow when active development is in progress. Few
 things are more like an experiment with new features and checking compatibility.
 
-### Installation
+### Getting Started as a Developer
 
-#### Dev
+#### Prerequisites
 
 - [Java 19](https://www.oracle.com/java/technologies/downloads/)
 - [Docker](https://www.docker.com/)
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-### Run Project
+#### Installation
 
-Build maven project locally
+1. Clone the repo
 
-````
-mvn clean verify
-````
+```
+git clone https://github.com/studymadara/React.git
+```
+
+2. Build the project
+
+```
+mvn clean install
+```
+
+#### Run Project
 
 Make sure you clean the project before running docker compose.
 
