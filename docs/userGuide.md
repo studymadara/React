@@ -14,7 +14,9 @@ things are more like an experiment with new features and checking compatibility.
 - Grafana Metrics
     - Business Metrics
       ![img_2.png](img_2.png)
+
 - Zipkin Tracing
+  ![img_3.png](img_3.png)
 
 -------
 Note - Make sure Authorization fields are not empty.
