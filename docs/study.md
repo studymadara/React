@@ -1,6 +1,6 @@
 ### Discussions
 
-- [ ] Add Microservice by creating one more backend app.
+- [x] Add Microservice by creating one more backend app.
 - [ ] Instead of calling public api directly use Amazon Lamda - basic.
 - [x] Add dependency bot for security
 - [ ] Read the docs
@@ -19,17 +19,18 @@
 - [x] Use grammarly
 - [x] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)** ([Business Metrics](https://docs.spring.io/spring-metrics/docs/current/public/prometheus)
   and [Technical Metrics]())
-- [ ] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
+- [x] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
 - [ ] **[Resiliency](https://resilience4j.readme.io/)**
 - [ ] **Feature Flags in Spring Boot**
 - [ ] How to deal with Idempotent Requests
 - [ ] Logging Filters (/httptrace)
-- [ ] Externalized Configuration
-- [ ] Client Requirement to Code process - Upgrade
+- [x] Externalized Configuration
+- [ ] (Non Technical) Client Requirement to Code process - Upgrade
 - [ ] cache patterns
-- [ ] maven refresh
-- [ ] clean code read
-- [ ] [12 factors](https://12factor.net/)
+- [ ] maven refresh [read]
+- [ ] clean code [read]
+- [ ] docker basics refresh [read]
+- [ ] [12 factors](https://12factor.net/) [read]
 
 Links
 

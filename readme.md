@@ -16,7 +16,7 @@ All the features are more like proof of concept. This is just for learning purpo
 - [ ] GitHub Badges
 - [x] Use LocalStack for AWS
 - [ ] Automated Changelog
-- [ ] Dev Docs, Production Team Docs, User Docs
+- [x] Dev Docs, Production Team Docs, User Docs
 - [ ] Spring Reactive Database
 - [ ] Spring Reactive WebAPI
 - [x] Monitoring
