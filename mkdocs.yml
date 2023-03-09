@@ -26,3 +26,4 @@ nav:
   - Welcome:
       - Developer Guide: index.md
       - DevOps Guide: devOpsGuide.md
+      - User Guide: userGuide.md

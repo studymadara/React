@@ -5,6 +5,21 @@ things are more like an experiment with new features and checking compatibility.
 
 ### Getting Started as a Developer
 
+### Contents
+
+| File/folder                     | Description                           |
+|---------------------------------|---------------------------------------|
+| `.github\workflows`             | GitHub Actions pipeline.              |
+| `docs`                          | Documentation                         |
+| `src`                           | Java App                              |
+| `.readthedocs.yml`              | AutoGenerating Readme file.           |
+| `Dockerfile`                    | To run the app.                       |
+| `React.postman_collection.json` | Postman collection of all the API's.  |
+| `docker-compose-services.yml`   | The whole environment to run the app. |
+| `mkdocs.yml`                    | Mkdocs config file.                   |
+| `pom.xml`                       | Maven POM file.                       |
+| `README.md`                     | README file.                          |
+
 #### Prerequisites
 
 - [Java 19](https://www.oracle.com/java/technologies/downloads/)
