@@ -55,7 +55,7 @@ public class StudentController {
 
     @GetMapping(path = "/get/{rollNo}")
     @Retry(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "fallBackGetStudent")
-    @CircuitBreaker(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "fallBackGetStudent")
+    @CircuitBreaker(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "")
     public ResponseEntity<Optional<Student>> getStudent(@PathVariable String rollNo) {
         if (isDBCallAllowed) {
             return ResponseEntity.ok().body(getDataTimer.record(() -> studentRepository.getStudent(rollNo)));
