@@ -36,6 +36,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-2:8080
+      - calling.service.url2=http://app-2:8080
       - spring.application.name=app-1
   app-2:
     build:
@@ -51,6 +52,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-3:8080
+      - calling.service.url2=http://app-3:8080
       - spring.application.name=app-2
   app-3:
     build:
@@ -65,7 +67,8 @@ services:
     environment:
       - instance.database.call= false
       - instance.error= false
-      - calling.service.url=http://app-4:8080
+      - calling.service.url=http://NOT-EXIST:8080
+      - calling.service.url2=http://app-4:8080
       - spring.application.name=app-3
   app-4:
     build:
@@ -81,6 +84,7 @@ services:
       - instance.database.call= false
       - instance.error= false
       - calling.service.url=http://app-5:8080
+      - calling.service.url2=http://app-5:8080
       - spring.application.name=app-4
   app-5:
     build:
@@ -96,6 +100,7 @@ services:
       - instance.database.call= true
       - instance.error= false
       - calling.service.url=http://app-1:8080
+      - calling.service.url2=http://app-1:8080
       - spring.application.name=app-5
 
   prometheus:

@@ -1,7 +1,10 @@
 package com.react.java.controller;
 
+import com.react.java.constants.Resilience4JConstants;
 import com.react.java.dao.student.StudentRepository;
 import com.react.java.model.Student;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -37,6 +40,8 @@ public class StudentController {
 
     @Value("${calling.service.url}")
     String serviceUrl;
+    @Value("${calling.service.url2}")
+    String serviceUrl2;
 
     Logger log = LoggerFactory.getLogger(StudentController.class);
 
@@ -49,26 +54,32 @@ public class StudentController {
     }
 
     @GetMapping(path = "/get/{rollNo}")
+    @Retry(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "fallBackGetStudent")
+    @CircuitBreaker(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "fallBackGetStudent")
     public ResponseEntity<Optional<Student>> getStudent(@PathVariable String rollNo) {
         if (isDBCallAllowed) {
             return ResponseEntity.ok().body(getDataTimer.record(() -> studentRepository.getStudent(rollNo)));
         } else {
-            //BELOW IS JUST FOR EXPERIMENTING PURPOSE !!!NOT READY FOR PRODUCTION!!!
-            log.info("get student call was relayed to another service");
-            log.debug("get student with roll no: {} call was relayed to another service ", rollNo);
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Authorization", "Basic dmlyYTp2aXJh");
-            HttpEntity<String> httpEntity = new HttpEntity<>("body", headers);
-
-            String url = serviceUrl + "/get/" + rollNo;
-
-            return ResponseEntity.ok().body(getDataTimer.record(() ->
-                    Optional.ofNullable(restTemplate.exchange(url
-                            , HttpMethod.GET
-                            , httpEntity
-                            , Student.class).getBody())));
+            return getOptionalStudentResponseEntity(rollNo, serviceUrl);
         }
+    }
+
+    private ResponseEntity<Optional<Student>> getOptionalStudentResponseEntity(String rollNo, String serviceUrl) {
+        //BELOW IS JUST FOR EXPERIMENTING PURPOSE !!!NOT READY FOR PRODUCTION!!!
+        log.info("get student call was relayed to another service");
+        log.debug("get student with roll no: {} call was relayed to another service ", rollNo);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic dmlyYTp2aXJh");
+        HttpEntity<String> httpEntity = new HttpEntity<>("body", headers);
+
+        String url = serviceUrl + "/get/" + rollNo;
+
+        return ResponseEntity.ok().body(getDataTimer.record(() ->
+                Optional.ofNullable(restTemplate.exchange(url
+                        , HttpMethod.GET
+                        , httpEntity
+                        , Student.class).getBody())));
     }
 
     @PostMapping(path = "/save", consumes = "application/json")
@@ -77,5 +88,11 @@ public class StudentController {
         studentSaveCounter.increment();
         studentRepository.saveStudent(student);
         return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
+    public ResponseEntity<Optional<Student>> fallBackGetStudent(String rollNo, Exception exception) {
+        log.info("get student called through fallBack mechanism");
+        log.debug("get student called through fallBack mechanism for roll no: {}", rollNo);
+        return getOptionalStudentResponseEntity(rollNo, serviceUrl2);
     }
 }
