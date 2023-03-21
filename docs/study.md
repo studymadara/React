@@ -20,7 +20,7 @@
 - [x] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)** ([Business Metrics](https://docs.spring.io/spring-metrics/docs/current/public/prometheus)
   and [Technical Metrics]())
 - [x] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
-- [ ] **[Resiliency](https://resilience4j.readme.io/)**
+- [x] **[Resiliency](https://resilience4j.readme.io/)**
 - [ ] **Feature Flags in Spring Boot**
 - [ ] How to deal with Idempotent Requests
 - [ ] Logging Filters (/httptrace)
