@@ -1,10 +1,7 @@
 package com.react.java.controller;
 
-import com.react.java.constants.Resilience4JConstants;
 import com.react.java.dao.student.StudentRepository;
 import com.react.java.model.Student;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.github.resilience4j.retry.annotation.Retry;
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -54,8 +51,8 @@ public class StudentController {
     }
 
     @GetMapping(path = "/get/{rollNo}")
-    @Retry(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "fallBackGetStudent")
-    @CircuitBreaker(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "")
+//    @Retry(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "fallBackGetStudent")
+//    @CircuitBreaker(name = Resilience4JConstants.STUDENT_GET, fallbackMethod = "")
     public ResponseEntity<Optional<Student>> getStudent(@PathVariable String rollNo) {
         if (isDBCallAllowed) {
             return ResponseEntity.ok().body(getDataTimer.record(() -> studentRepository.getStudent(rollNo)));

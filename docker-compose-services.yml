@@ -67,7 +67,7 @@ services:
     environment:
       - instance.database.call= false
       - instance.error= false
-      - calling.service.url=http://NOT-EXIST:8080
+      - calling.service.url=http://app-4:8080
       - calling.service.url2=http://app-4:8080
       - spring.application.name=app-3
   app-4:
@@ -131,6 +131,14 @@ services:
       - "9411:9411"
     networks:
       - external_network
+
+  redis:
+    image: redis/redis-stack
+    volumes:
+      - ./local-data/:/data
+    networks:
+      - local_db_network
+
 
 networks:
   local_db_network:

@@ -115,13 +115,13 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: software.amazon.awssdk:netty-nio-client:2.20.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec-http:4.1.89.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec-http2:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-resolver:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-common:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-buffer:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-handler:4.1.89.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport-native-unix-common:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.89.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-unix-common:4.1.89.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport-classes-epoll:4.1.89.Final" level="project" />
     <orderEntry type="library" name="Maven: software.amazon.awssdk:dynamodb-enhanced:2.20.9" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.26" level="project" />
@@ -190,5 +190,14 @@
     <orderEntry type="library" name="Maven: io.vavr:vavr-match:0.10.2" level="project" />
     <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-core:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: io.github.resilience4j:resilience4j-timelimiter:1.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.7.9" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.7.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:2.7.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.7.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.25" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.3.25" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.25" level="project" />
+    <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:6.1.10.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.4.27" level="project" />
   </component>
 </module>

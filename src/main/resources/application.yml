@@ -14,6 +14,18 @@ spring:
     base-url: http://zipkin:9411
   application:
     name: LOCAL-APP
+  #CACHE CONFIG
+  redis:
+    host: redis
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      #      time-to-live: 10000
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: ${spring.application.name:"FAILED TO LOAD APP NAME"}
+      enable-statistics: true
 
 
 #ACTUATOR CONFIG
