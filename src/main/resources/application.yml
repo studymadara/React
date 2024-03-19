@@ -1,6 +1,85 @@
+#DB CONFIG
 amazon:
   dynamodb:
-    endpoint: http://localhost:4566/
+    endpoint: http://localstack:4566/
   aws:
     accesskey: KEYTEST
     secretkey: KEYID
+
+#APP CONFIG
+spring:
+  profiles:
+    active: dev
+  zipkin:
+    base-url: http://zipkin:9411
+  application:
+    name: LOCAL-APP
+  #CACHE CONFIG
+  redis:
+    host: redis
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      #      time-to-live: 10000
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: ${spring.application.name:"FAILED TO LOAD APP NAME"}
+      enable-statistics: true
+
+
+#ACTUATOR CONFIG
+management:
+  endpoint:
+    metrics:
+      enable: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  health:
+    circuitbreakers:
+      enabled: true
+
+
+# EXTERNAL CONFIG
+instance:
+  database:
+    call: true
+  error: false
+
+# MICRO SERVICE ENDPOINT
+calling:
+  service:
+    url: http://app-2:8080
+    url2: http://app-2:8080
+
+#LOGGING PATTERN
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+
+#RESILIENCE4J CONFIG
+resilience4j:
+  circuitbreaker:
+    instances:
+      StudentGET:
+        slidingWindowSize: 100
+        permittedNumberOfCallsInHalfOpenState: 3
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+  configs:
+    default:
+      registerHealthIndicator: true
+
+  retry:
+    instances:
+      StudentGET:
+        maxAttempts: 3
+        waitDuration: 10s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2

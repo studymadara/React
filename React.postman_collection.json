@@ -11,23 +11,134 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{env}}/",
+					"raw": "http://{{env}}/home",
 					"protocol": "http",
 					"host": [
 						"{{env}}"
 					],
 					"path": [
-						""
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student Detail",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "vira",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "vira",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{env}}/get/12",
+					"protocol": "http",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"get",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Student Detail",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "vira",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "vira",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentRollNo\": \"1\",\n    \"studentName\": \"Test Viraj\",\n    \"studentClass\": \"Diploma\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{env}}/save",
+					"protocol": "http",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"save"
 					]
 				}
 			},
 			"response": []
 		}
 	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "vira",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "vira",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "env",
-			"value": "localhost:8080"
+			"value": "127.0.0.1:8081"
 		}
 	]
 }

@@ -4,32 +4,155 @@ services:
   localstack:
     image: localstack/localstack
     container_name: localstack
-    ports:
-      - "4566:4566" # port of to where localstack can be addressed to
-      - "9000:9000"
     environment:
       - SERVICES=sqs,dynamodb # a list of desired services you want to use.
       - DEFAULT_REGION=eu-west-1 # This is the region where your localstack mocks to be running
       - LAMBDA_EXECUTOR=local
       - KINESIS_PROVIDER=kinesalite
       - EDGE_PORT=4566
-      - DOCKER_HOST=unix:///var/run/docker.sock
       - START_WEB=1
+      - DOCKER_HOST=unix:///var/run/docker.sock
       - AWS_SECRET_ACCESS_KEY=KEYTEST
       - AWS_SECRET_KEY_ID=KEYID
       - DEBUG=1
+    volumes:
+      - "./src/main/resources/docker/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook  # Change <Workspace> location
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      - local_network
-  app:
+      - local_db_network
+
+  app-1:
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - 8080:8080 #Internal port to external port mapping
+      - "8081:8080" #Internal port to external port mapping
     networks:
-      - local_network
+      - local_db_network
+      - local_metric_network
+      - external_network
+    environment:
+      - instance.database.call= false
+      - instance.error= false
+      - calling.service.url=http://app-2:8080
+      - calling.service.url2=http://app-2:8080
+      - spring.application.name=app-1
+  app-2:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080" #Internal port to external port mapping
+    networks:
+      - local_db_network
+      - local_metric_network
+      - external_network
+    environment:
+      - instance.database.call= false
+      - instance.error= false
+      - calling.service.url=http://app-3:8080
+      - calling.service.url2=http://app-3:8080
+      - spring.application.name=app-2
+  app-3:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8080" #Internal port to external port mapping
+    networks:
+      - local_db_network
+      - local_metric_network
+      - external_network
+    environment:
+      - instance.database.call= false
+      - instance.error= false
+      - calling.service.url=http://app-4:8080
+      - calling.service.url2=http://app-4:8080
+      - spring.application.name=app-3
+  app-4:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8080" #Internal port to external port mapping
+    networks:
+      - local_db_network
+      - local_metric_network
+      - external_network
+    environment:
+      - instance.database.call= false
+      - instance.error= false
+      - calling.service.url=http://app-5:8080
+      - calling.service.url2=http://app-5:8080
+      - spring.application.name=app-4
+  app-5:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8080" #Internal port to external port mapping
+    networks:
+      - local_db_network
+      - local_metric_network
+      - external_network
+    environment:
+      - instance.database.call= true
+      - instance.error= false
+      - calling.service.url=http://app-1:8080
+      - calling.service.url2=http://app-1:8080
+      - spring.application.name=app-5
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - "./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml" # Change <Workspace> location
+    networks:
+      - local_metric_network
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    networks:
+      - external_network
+      - local_metric_network
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - external_network
+
+  redis:
+    image: redis/redis-stack
+    volumes:
+      - ./local-data/:/data
+    networks:
+      - local_db_network
+
+  redis-exporter:
+    image: oliver006/redis_exporter
+    environment:
+      REDIS_ADDR: "redis:6379"
+    networks:
+      - local_db_network
+      - local_metric_network
+
 
 networks:
-  local_network:
+  local_db_network:
+    driver: bridge
+  local_metric_network:
+    driver: bridge
+  external_network:
     driver: bridge
 

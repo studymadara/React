@@ -1,0 +1,29 @@
+# Project information
+site_name: React
+site_url: https://github.com/studymadara/React
+site_author: Viraj Wagh
+
+# Theme
+theme:
+  name: readthedocs
+  highlightjs: true
+  plugins:
+    - search
+    - mkdocstrings:
+        handlers:
+          # See: https://mkdocstrings.github.io/python/usage/
+          python:
+            options:
+              docstring_style: sphinx
+
+markdown_extensions:
+  - markdown_include.include:
+      base_path: .
+  - admonition
+
+# Navigation
+nav:
+  - Welcome:
+      - Developer Guide: index.md
+      - DevOps Guide: devOpsGuide.md
+      - User Guide: userGuide.md

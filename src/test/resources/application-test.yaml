@@ -4,3 +4,9 @@ amazon:
   aws:
     accesskey: KEYTEST
     secretkey: KEYID
+
+
+instance:
+  database:
+    call: true
+  error: false

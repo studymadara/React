@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EntryController {
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "/home")
     public ResponseEntity<HttpStatus> landingApi() {
         return ResponseEntity.ok().build();
     }

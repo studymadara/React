@@ -1,5 +1,6 @@
 package com.react.java.controller;
 
+import com.react.java.DevUnitTesting;
 import com.react.java.ReactCRUDApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,14 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = ReactCRUDApplication.class)
-class EntryControllerTest {
+class EntryControllerTest implements DevUnitTesting {
 
     @Value(value = "${local.server.port}")
     private int port;
@@ -31,7 +31,7 @@ class EntryControllerTest {
 
     @Test
     void testLandingApi() {
-        HttpStatusCode httpStatusCode = restTemplate.exchange("http://localhost:" + port + "/", HttpMethod.GET, null, HttpStatus.class).getStatusCode();
+        HttpStatus httpStatusCode = restTemplate.exchange("http://localhost:" + port + "/home", HttpMethod.GET, null, HttpStatus.class).getStatusCode();
         assertEquals(HttpStatus.OK.value(), httpStatusCode.value());
     }
 

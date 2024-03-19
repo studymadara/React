@@ -1,6 +1,6 @@
 ### Discussions
 
-- [ ] Add Microservice by creating one more backend app.
+- [x] Add Microservice by creating one more backend app.
 - [ ] Instead of calling public api directly use Amazon Lamda - basic.
 - [x] Add dependency bot for security
 - [ ] Read the docs
@@ -17,20 +17,32 @@
 - [x] Dev readme, prod team doc, swagger/how to use your service (restdocs) - 100%
 - [x] Project structure - rules [doc part]
 - [x] Use grammarly
-- [x] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)**
-- [ ] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
-- [ ] **[Resiliency](https://resilience4j.readme.io/)**
+- [x] **[Spring Boot Monitoring](https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15)** ([Business Metrics](https://docs.spring.io/spring-metrics/docs/current/public/prometheus)
+  and [Technical Metrics]())
+- [x] **Distributed Tracing / Open Tracing - Zipkin, Jaeger**
+- [x] **[Resiliency](https://resilience4j.readme.io/)**
 - [ ] **Feature Flags in Spring Boot**
+- [ ] How to deal with Idempotent Requests
+- [ ] Logging Filters (/httptrace)
+- [x] Externalized Configuration
+- [ ] (Non Technical) Client Requirement to Code process - Upgrade
+- [ ] cache patterns
+- [ ] maven refresh [read]
+- [ ] clean code [read]
+- [ ] docker basics refresh [read]
+- [ ] [12 factors](https://12factor.net/) [read]
 
+Links
 
-
-
+1. [Micro Meter Brief Tutorial](https://www.youtube.com/watch?v=JAdxO1XboJY)
 
 --------------
 Note -
+
 - DL = Depends on Localstack
 - LI = Learn and Implement
 - I = Implement
+
 -----------
 
 
