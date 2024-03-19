@@ -18,6 +18,3 @@ scrape_configs:
     basic_auth:
       username: "vira"
       password: "vira"
-  - job_name: 'redis_exporter'
-    static_configs:
-      - targets: [ 'redis-exporter:9121' ]

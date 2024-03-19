@@ -139,14 +139,6 @@ services:
     networks:
       - local_db_network
 
-  redis-exporter:
-    image: oliver006/redis_exporter
-    environment:
-      REDIS_ADDR: "redis:6379"
-    networks:
-      - local_db_network
-      - local_metric_network
-
 
 networks:
   local_db_network:
